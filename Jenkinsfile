@@ -42,7 +42,10 @@ pipeline {
 
             slackSend channel: '#all-sandys',
             color: 'good',
-            message: "The pipeline ${currentBuild.fullDisplayName} build."
+            message: """
+                Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)
+                The pipeline ${currentBuild.fullDisplayName} build.
+                """
         }
         success {
             mail to: 'mariuscarchilan07@gmail.com',
