@@ -37,8 +37,13 @@ pipeline {
         }       
     }
     post {
-            always {
-                junit 'target/surefire-reports/TEST-com.mycompany.app.AppTest.xml'
-            }
+        always {
+            junit 'target/surefire-reports/TEST-com.mycompany.app.AppTest.xml'
         }
+        success {
+            mail to: 'mariuscarchilan07@gmail.com',
+            subject: "Successfull Pipeline: ${currentBuild.fullDisplayName}",
+            body: "Everythins is good ${env.BUILD_URL}"
+        }
+    }
 }
