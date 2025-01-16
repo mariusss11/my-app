@@ -62,5 +62,11 @@ pipeline {
             Your CI/CD System
             """
         }
+
+        always {
+            slackSend channel: '#bank-project',
+            color: 'good',
+            message: "The pipeline ${currentBuild.fullDisplayName} build."
+        }
     }
 }
