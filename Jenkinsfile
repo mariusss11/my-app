@@ -42,8 +42,25 @@ pipeline {
         }
         success {
             mail to: 'mariuscarchilan07@gmail.com',
-            subject: "Successfull Pipeline: ${currentBuild.fullDisplayName}",
-            body: "Everythins is good ${env.BUILD_URL}"
+            subject: "Pipeline Success: ${currentBuild.fullDisplayName}",
+            body: """\
+            Hello,
+
+            The pipeline run '${currentBuild.fullDisplayName}' was successful!
+
+            Details:
+            - Build URL: ${env.BUILD_URL}
+            - Build Status: Successful
+
+            Debuggin:
+            - Env: ${env}
+            - CurrentBuild: ${currentBuild}
+
+            Everything is working as expected. If you have any questions, feel free to reach out.
+
+            Best regards,
+            Your CI/CD System
+            """
         }
     }
 }
