@@ -8,7 +8,11 @@ pipeline {
     stages {
         stage('---clean---') {
             steps {
-                sh 'mvn clean'
+                sh '''
+                    ls -la
+                    mvn clean
+                    ls -la
+                '''
             }
         }
 
@@ -25,7 +29,10 @@ pipeline {
         }
         stage('---package---') {
             steps {
-                sh 'mvn package'
+                sh '''
+                    mvn package
+                    ls -la
+                '''
             }
         }
 
