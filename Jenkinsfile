@@ -38,7 +38,11 @@ pipeline {
     }
     post {
         always {
-            junit 'target/surefire-reports/TEST-com.mycompany.app.AppTest.xml'
+            // junit 'target/surefire-reports/TEST-com.mycompany.app.AppTest.xml'
+
+            slackSend channel: '#bank-project',
+            color: 'good',
+            message: "The pipeline ${currentBuild.fullDisplayName} build."
         }
         success {
             mail to: 'mariuscarchilan07@gmail.com',
@@ -61,12 +65,6 @@ pipeline {
             Best regards,
             Your CI/CD System
             """
-        }
-
-        always {
-            slackSend channel: '#bank-project',
-            color: 'good',
-            message: "The pipeline ${currentBuild.fullDisplayName} build."
         }
     }
 }
