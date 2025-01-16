@@ -4,11 +4,17 @@ pipeline {
     tools {
        maven '3.9.9'
     }
-    
+
     stages {
         stage('---clean---') {
             steps {
                 sh 'mvn clean'
+            }
+        }
+
+        stage('---compile---') {
+            steps {
+                sh 'mvn package'
             }
         }
 
@@ -22,5 +28,7 @@ pipeline {
                 sh 'mvn package'
             }
         }
+
+        
     }
 }
