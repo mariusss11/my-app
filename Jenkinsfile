@@ -40,7 +40,7 @@ pipeline {
         always {
             // junit 'target/surefire-reports/TEST-com.mycompany.app.AppTest.xml'
 
-            slackSend channel: '#bank-project',
+            slackSend channel: '#all-sandys',
             color: 'good',
             message: "The pipeline ${currentBuild.fullDisplayName} build."
         }
