@@ -34,14 +34,11 @@ pipeline {
                     ls -la
                 '''
             }
-        }
-
-        post {
+        }       
+    }
+    post {
             always {
                 junit 'target/surefire-reports/*.xml'
             }
         }
-
-        
-    }
 }
