@@ -48,7 +48,7 @@ pipeline {
                 """
         }
         success {
-            mail to: 'mariuscarchilan07@gmail.com', 'alexandrinabruma04@gmail.com',
+            mail to: 'alexandrinabruma04@gmail.com',
             subject: "Pipeline Success: ${currentBuild.fullDisplayName}",
             body: """\
             Hello,
